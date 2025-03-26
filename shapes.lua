@@ -6,8 +6,8 @@ function Circle:new(radius)
     self.radius = radius
 end
 
-function Circle:draw(x, y)
-    love.graphics.circle("fill", x, y, self.radius, 5)
+function Circle:draw(x, y, scale)
+    love.graphics.circle("fill", x, y, self.radius * scale, 5)
 end
 
 local Line = Object:extend()
@@ -18,9 +18,9 @@ function Line:new(width, vx, vy)
     self.vy = vy
 end
 
-function Line:draw(x, y)
-    love.graphics.setLineWidth(self.width)
-    love.graphics.line(x + self.vx, y + self.vy, x, y)
+function Line:draw(x, y, scale)
+    love.graphics.setLineWidth(self.width * scale)
+    love.graphics.line(x + self.vx * scale, y + self.vy * scale, x, y)
 end
 
 return {Circle = Circle, Line = Line}
