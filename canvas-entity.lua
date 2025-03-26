@@ -10,10 +10,10 @@ function CanvasEntity:new(x, y, color, shape)
     self.shape = shape
 end
 
-function CanvasEntity:draw()
+function CanvasEntity:draw(canvas)
     -- local width, height = love.window.getDimensions( )
     love.graphics.setColor(unpack(self.color))
-    self.shape:draw(self.x, self.y)
+    self.shape:draw(self.x + canvas.dx, self.y + canvas.dy)
 end
 
 return CanvasEntity

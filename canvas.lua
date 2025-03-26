@@ -5,6 +5,8 @@ local Canvas = Object:extend()
 
 function Canvas:new()
     self.entities = {}
+    self.dx = 0
+    self.dy = 0
     -- Array of entities contains them in the order they have been drew.
     -- Thus, historyPoints array can store the indexes from which last 'line' started
     self.historyPoints = {}
@@ -27,13 +29,18 @@ function Canvas:goBackToLastPoint()
     end
 end
 
+function Canvas:displace(dx, dy)
+    self.dx = self.dx + dx
+    self.dy = self.dy + dy
+end
+
 function Canvas:addEntity(entity)
     table.insert(self.entities, entity)
 end
 
 function Canvas:drawEntities()
     for _, entity in pairs(self.entities) do
-        entity:draw()
+        entity:draw(self)
     end
 end
 

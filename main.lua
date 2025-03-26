@@ -44,6 +44,15 @@ registerMouseInput = function ()
         canvas:addEntity(CanvasEntity(
             love.mouse.getX(), love.mouse.getY(),{1, 1, 1}, shape
         ))
+    elseif love.mouse.isDown(3) then
+        if previousPoint ~= nil then
+            canvas:displace(
+                love.mouse.getX() - previousPoint[1],
+                love.mouse.getY() - previousPoint[2]
+            )
+        end
+
+        previousPoint = {love.mouse.getX(), love.mouse.getY()}
     else
         previousPoint = nil
     end
