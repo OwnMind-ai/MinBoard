@@ -93,8 +93,8 @@ registerMouseInput = function ()
 
         previousPoint = {mx, my}
     elseif love.mouse.isDown(3) then
-        mx = love.mouse.getX() / canvas.scale
-        my = love.mouse.getY() / canvas.scale
+        mx = love.mouse.getX()
+        my = love.mouse.getY()
 
         if previousPoint ~= nil then
             canvas:displace(
