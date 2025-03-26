@@ -57,7 +57,7 @@ function love.keypressed(key)
     if key == 'c' then
         canvas.dx = 0
         canvas.dy = 0
-    elseif key == 'w' then
+    elseif key == 'r' then
         canvas = Canvas()
     elseif key == '=' or key == '+' then
         canvas.brushSize = canvas.brushSize + 1

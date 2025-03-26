@@ -11,5 +11,5 @@ Personal small and nimble Lua-based drawing environment
 - Keys 1-9 change colors (white, red, blue, green, yellow, ...)
 - 'e' eraser brush
 - '+' key increases brush size, '-' decreases
-- 'w' resets canvas
+- 'r' resets canvas
 - 'c' centers canvas
