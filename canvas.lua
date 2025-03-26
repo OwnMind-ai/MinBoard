@@ -8,6 +8,9 @@ function Canvas:new()
     self.dx = 0
     self.dy = 0
     self.scale = 1
+    self.brushSize = 3
+    self.color = {1, 1, 1}
+    self.background = {32 / 255, 33 / 255, 36 / 255}
     -- Array of entities contains them in the order they have been drew.
     -- Thus, historyPoints array can store the indexes from which last 'line' started
     self.historyPoints = {}

@@ -11,12 +11,17 @@ function CanvasEntity:new(x, y, color, shape)
 end
 
 function CanvasEntity:draw(canvas)
-    -- local width, height = love.window.getDimensions( )
-    love.graphics.setColor(unpack(self.color))
+    if type(self.color) == "table" then
+        love.graphics.setColor(unpack(self.color))
+    else
+        love.graphics.setColor(unpack(canvas.background))
+    end
+
     self.shape:draw(
         self.x * canvas.scale + canvas.dx,
         self.y * canvas.scale + canvas.dy,
-        canvas.scale)
+        canvas.scale
+    )
 end
 
 return CanvasEntity

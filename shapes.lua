@@ -7,7 +7,7 @@ function Circle:new(radius)
 end
 
 function Circle:draw(x, y, scale)
-    love.graphics.circle("fill", x, y, self.radius * scale, 5)
+    love.graphics.circle("fill", x, y, self.radius * scale, 20)
 end
 
 local Line = Object:extend()
