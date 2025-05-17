@@ -25,6 +25,7 @@ local canvas
 local previousPoint
 local historyLocked = false
 local pointStarted = false
+local drawLocked = false
 
 function love.load()
     love.window.setMode( 800, 600, {
@@ -72,7 +73,7 @@ registerMouseInput = function ()
     local mx = (love.mouse.getX() - canvas.dx) / canvas.scale
     local my = (love.mouse.getY() - canvas.dy) / canvas.scale
 
-    if love.mouse.isDown(1) then
+    if not drawLocked and love.mouse.isDown(1) then
         local shape
 
         if previousPoint == nil then
@@ -103,6 +104,7 @@ registerMouseInput = function ()
             )
         end
 
+        drawLocked = true
         previousPoint = {mx, my}
     else
         if pointStarted then
@@ -110,7 +112,11 @@ registerMouseInput = function ()
             pointStarted = false
         end
 
+        if previousPoint ~= nil and not drawLocked then
+            canvas:poligonizeLast()
+        end
         previousPoint = nil
+        drawLocked = false
     end
 end
 
